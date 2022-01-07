@@ -6,10 +6,12 @@ const bodyParser = require("body-parser");
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 
+// use the from to enter a city
 app.get("/", (req, res) => {
   res.sendFile(__dirname + '/index.html')
 })
 
+//post the data to the api and use res data to display info
 app.post("/", (req, res) => {
   const query = req.body.cityName;
   const apiKey = "68ecb7254aa07165df1e00dad6dcda01";
@@ -32,20 +34,26 @@ app.post("/", (req, res) => {
             `<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">` +
           `</head>` +
           `<body>` +
-              `<div class="w3-container w3-margin">` +
-                  `<div class="w3-card-4 w3-margin">` +
-                      `<div class="w3-margin">` +
-                          `<div><h1>${city} weather</h1></div>` +
-                          `<div class="w3-cell"><h2>current conditions</h2></div>` +
-                          `<div class="w3-cell">` +
-                              `<img src="http://openweathermap.org/img/wn/${img}@2x.png" >` +
-                          `</div>` +
-                          `<div><h3>${description}</h3></div>` +
-                          `<div><h3>${temp}</h3></div>` +
-                          `<div><h3>Real Feel: ${real_feel}</h3></div>` +
-                      `</div>` +
-                  `</div>` +
+          `<div class="w3-margin" style="max-width:50% ;min-width: 40%;">` +
+            `<div class="w3-container w3-border w3-round w3-margin w3-padding w3-blue">` +
+              `<h3>Simple Weather App</h3>` +
+              `<form class="w3-form" action="/" method="post">` +
+                `<input id="cityInput" name="cityName" placeholder="enter city name">` +
+                `<div class="w3-btn w3-ripple w3-right" type="submit" name="submit">Go</div>` +
+              `</form>` +
+            `</div>` +
+            `<div class="w3-card-4 w3-margin w3-blue">` +
+              `<div class="w3-margin">` +
+                  `<h3>${city}</h3>` +
+                  '<hr>' +
+                  `<h5><h3>${description}</h3></h5>` +
+                  `<img src="http://openweathermap.org/img/wn/${img}@2x.png" >` +
+                  '<hr>' +
+                  `<h5>Temp: ${temp}&#176; </h5>` +
+                  `<div class="w3-small">Feels like: ${real_feel}&#176;</div>` +
               `</div>` +
+            `</div>` +
+          `</div>` +
           `</body>` +
         `<html>`
       )

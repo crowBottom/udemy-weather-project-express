@@ -6,12 +6,14 @@
     <title>Your Weather</title>
   </head>
   <body>
-    <div class="w3-margin">
-      <form action="/" method="post">
-        <label for="cityInput" >City Name</label>
-        <input id="cityInput" name="cityName">
-        <button type="submit" name="submit">Go</button>
-      </form>
+    <div class="w3-margin" style="max-width:50% ;min-width: 40%;">
+      <div class="w3-container w3-border w3-round w3-margin w3-padding w3-blue">
+        <h3>Simple Weather App</h3>
+        <form class="w3-form" action="/" method="post">
+          <input id="cityInput" name="cityName" placeholder="enter city name">
+          <div class="w3-btn w3-ripple w3-right" type="submit" name="submit">Go</div>
+        </form>
+      </div>
     </div>
   </body>
 </html>
