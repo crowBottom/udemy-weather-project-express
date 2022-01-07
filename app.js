@@ -42,7 +42,7 @@ app.post("/", (req, res) => {
                 `<div class="w3-btn w3-ripple w3-right" type="submit" name="submit">Go</div>` +
               `</form>` +
             `</div>` +
-            `<div class="w3-card-4 w3-margin w3-blue">` +
+            `<div class="w3-card-4 w3-margin" style=" background: linear-gradient(to bottom right, #33ccff 0%, #000099 100%);">` +
               `<div class="w3-margin">` +
                   `<h3>${city}</h3>` +
                   '<hr>' +
